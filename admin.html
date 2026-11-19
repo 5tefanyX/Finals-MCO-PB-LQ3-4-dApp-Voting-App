@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Campus Voting - Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="admin">
+  <header class="topbar">
+    <h1>Election admin</h1>
+    <div class="wallet">
+      <a href="index.html">Voter page</a>
+      <span id="walletStatus">Wallet not connected</span>
+      <button id="connectButton">Admin login</button>
+    </div>
+  </header>
+  <main>
+    <section class="status-strip">
+      <strong id="electionStatus">Log in with the admin wallet to continue.</strong>
+      <span id="totalVotes"></span>
+    </section>
+
+    <section class="panel">
+      <h2>EA login</h2>
+      <p class="hint">Log in with the admin wallet.</p>
+    </section>
+
+    <section class="panel" id="denied" hidden>
+      <h2>Access denied</h2>
+      <p>This wallet is not the election admin. Switch MetaMask to the account that deployed the contract.</p>
+    </section>
+
+    <div id="adminApp" hidden>
+      <section class="panel">
+        <h2>Adding of candidates</h2>
+        <p class="hint">Candidates can only be added before voting starts.</p>
+        <input id="candidateName" type="text" placeholder="Candidate name" />
+        <input id="candidatePosition" type="text" placeholder="Position" />
+        <button id="addCandidateButton">Add candidate</button>
+        <div id="candidateList"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Voter registrations</h2>
+        <p class="hint">Authorize registered voters before voting starts.</p>
+        <div id="registrations"></div>
+        <input id="voterAddress" type="text" placeholder="Or authorize a wallet address directly (0x...)" />
+        <button id="authorizeVoterButton">Authorize address</button>
+      </section>
+
+      <section class="panel">
+        <h2>Start and close the voting process</h2>
+        <div class="button-group">
+          <button id="startElectionButton">Start voting</button>
+          <button id="endElectionButton" class="danger">Close voting</button>
+        </div>
+      </section>
+
+      <section class="panel"><h2>Tabulation results</h2><div id="results"></div></section>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

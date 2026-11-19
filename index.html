@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Campus Voting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="login">
+  <header class="topbar">
+    <h1>Campus Voting</h1>
+    <nav class="nav">
+      <a href="index.html" class="active">Register / Login</a>
+      <a href="candidates.html">Candidates &amp; Results</a>
+      <a href="vote.html">Vote</a>
+    </nav>
+    <div class="wallet">
+      <a id="adminLink" href="admin.html" hidden>Admin page</a>
+      <span id="walletStatus">Wallet not connected</span>
+      <button id="connectButton">Log in with wallet</button>
+    </div>
+  </header>
+  <main>
+    <section class="status-strip">
+      <strong id="electionStatus">Log in with your wallet to continue.</strong>
+      <span id="totalVotes"></span>
+    </section>
+    <section class="panel">
+      <h2>How to vote</h2>
+      <p class="hint">1. Log in with your wallet. 2. Register your account  3. Wait for the admin to authorize your wallet. 4. Go to the Vote page when voting is open.</p>
+    </section>
+    <div id="app" hidden>
+      <section class="panel"><h2>Your voter status</h2><p id="voterStatus"></p></section>
+      <section class="panel" id="registerCard">
+        <h2>Voter registration</h2>
+        <p class="hint">Your wallet address is saved with your request. The admin must authorize it before you can vote.</p>
+        <input id="regName" type="text" placeholder="Full name" />
+        <input id="regId" type="text" placeholder="Student ID" />
+        <button id="registerButton">Submit registration</button>
+      </section>
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
